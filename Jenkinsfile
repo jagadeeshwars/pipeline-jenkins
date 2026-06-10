@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	environment {
-		BRANCH_NAME = "main"
+		BRANCH_NAME = "master"
 		REPO_DIR = "${WORKSPACE}/Jenkins"
 		REPO_URL = "https://github.com/jagadeeshwars/pipeline-jenkins.git"
 		RUN_TESTS = "true"
