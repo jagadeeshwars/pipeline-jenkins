@@ -13,7 +13,7 @@ pipeline {
 				script {
 					echo "Checkout branch to ${BRANCH_NAME}"
 					sh """
-						if [ -d "REPO_DIR" ]; then
+						if [ -d "${REPO_DIR}" ]; then
 							cd ${REPO_DIR}
 							git reset --hard
 							git checkout ${BRANCH_NAME}
