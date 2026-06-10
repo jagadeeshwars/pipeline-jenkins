@@ -1,0 +1,21 @@
+
+node {
+	try {
+		stage('Checkout Code') {
+			checkout scm
+		}
+
+		stage('Install Dependencies') {
+			sh 'npm install'
+		}
+
+		stage('Run App') {
+			sh 'pkill -f "node app.js" || true'
+			sh 'nohup node app.js > app.log 2>&1 &'
+			sleep 60
+			sh 'curl http://localhost:3002'
+		}
+	} finally {
+		echo 'cleaning up...'
+	}
+}
